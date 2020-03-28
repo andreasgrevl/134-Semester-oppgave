@@ -1,0 +1,214 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  background-color: rgba(100, 100, 100, 0.1);
+}
+
+/* samling av alt innholdet i en liten div-innpakking */
+.container {
+  width: auto;
+  height: auto;
+  background-color: rgba(120,120, 120, 0.5);
+  padding: 2% 2%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px gray;
+}
+
+.headerimg {
+  display: block;
+  opacity: 1;
+  margin-left: 0%;
+  margin-right: 0%;
+  position: relative;
+  height: 100px;
+  max-width: 100%;
+  border-radius: 10px;
+  background: rgba(120,120, 120, 0.5);
+  box: 0px 5px 10px gray;
+
+}
+
+/* fancy endring av farge på headerimg ved hover */
+.headerimg:hover {
+  transition: 0.8s;
+  background: linear-gradient(45deg, rgba(150,20,150,0.4) 23%,
+  rgba(67,180,180,1) 72%, rgba(150,20,150,0.4) 100%);
+  opacity: 0.9;
+}
+
+input {
+  font-size: 16px;
+}
+
+#searchbtn {
+  font-size: 17px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* klasser for å vise/skjule innhold på siden */
+.vis {
+  display: block;
+}
+.skjul {
+  display: none;
+}
+
+/* fleksibilitet til navigeringsmenyen */
+.navbar {
+  width: auto;
+}
+
+/* knappene i navbar */
+.navbutton {
+  width: auto;
+  display: block;
+  float: left;
+  background-color: gray;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-top: 10px;
+  margin-left: 2px;
+  list-style: none;
+  text-align: center;
+  text-decoration: none;
+
+}
+/* fancy opplysning av knappene */
+.navbutton:hover {
+  background-color: #0080ec;
+
+}
+
+/* linker arver tekstfarge fra body */
+a {
+  color: inherit;
+}
+
+/* fjerner streker under 'knappene' */
+li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+table {
+  font-family: sans-serif;
+  background-color: white;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+/* gir annenhver linje i tabellen en farge */
+tr:nth-child(even) {
+  background-color: rgba(55, 160, 200, 0.2);
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+  width: 500px;
+}
+
+th {
+  background-color: rgba(55, 160, 200, 0.4);
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+footer {
+  text-align: center;
+}
+
+/* innpakking for innholdet */
+.infoboks {
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 2% 2%;
+  border-radius: 20px;
+  boks-shadow: 0px 5px 10px gray;
+}
+
+/* klasser til tables i samanlikning */
+.samanlikning td{
+  width: 300px;
+  font-size: 14px;
+}
+.samanlikning tr{
+  font-size: 14px;
+}
+.samanlikning td td{
+  background-color: white;
+  display: block;
+  width: 55px;
+}
+/* gir grønn tekst til høyeste vekst i %poeng i samanlikning */
+.best-category {
+  text-shadow: 1px 1px 2px green;
+  color: rgba(0, 130, 100, 1);
+}
+
+/* markering av grønntekst i beskrivelsen til samanlikning */
+.green {
+  text-shadow: 1px 1px 2px green;
+  color: rgba(0, 130, 100, 1);
+}
+
+/* media screen for detaljer */
+@media screen and (max-width: 1138px){
+    .details table {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 0;
+      background-color: transparent;
+    }
+    .details td{
+      display: block;
+      height: auto;
+      width: 300px;
+    }
+    .details tr{
+      display: block;
+    }
+    /* spesifisitet */
+    .details tbody tr td h4 {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .details .flex tr {
+      display: flex;
+      flex-flow: row wrap;
+    }
+}
+
+/* media screen for samanlikning */
+@media screen and (max-width: 1236px){
+    .samanlikning thead {
+      font-size: 16px;
+    }
+    .samanlikning td{
+      font-size: 16px;
+      width: 300px;
+      display: block;
+    }
+    .samanlikning tr{
+      font-size: 16px;
+      display: block;
+      width: 312px;
+    }
+    .samanlikning td td{
+      font-size: 16px;
+      background-color: white;
+      display: block;
+      width: 200px;
+    }
+}
