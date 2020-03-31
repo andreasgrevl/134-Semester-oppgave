@@ -44,14 +44,14 @@ var detaljer = function() {
       nameCell.innerHTML ="<h4>Kommune: </h4>" + kommunenavn[i];
       idCell.innerHTML = "<h4>Kommune.nr: </h4>" + kommunenummer[i];
 
-      // BEFOLKNING
-      c1r2.innerHTML = "<h4>Befolkning i 2018: </h4>" + (info[kommunenummer[i]].population.Menn[2018]
-      + info[kommunenummer[i]].population.Kvinner[2018]);
-
       // SYSSELSATTE
       c2r2.innerHTML = "<h4>Sysselsatte i 2018: </h4>" + sysselsatte[kommunenummer[i]].population.Menn[2018]
       + "% av menn i arbeid og " + sysselsatte[kommunenummer[i]].population.Kvinner[2018]
       + "% av kvinner i arbeid.";
+
+      // BEFOLKNING
+      c1r2.innerHTML = "<h4>Befolkning i 2018: </h4>" + (info[kommunenummer[i]].population.Menn[2018]
+      + info[kommunenummer[i]].population.Kvinner[2018]);  
 
       // UTDANNING :
       // grunnskule
@@ -62,6 +62,10 @@ var detaljer = function() {
       c4r2.innerHTML = "<h4>Utdanning VGS: </h4> " + utd[kommunenummer[i]].population["02a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["02a"].Kvinner[2017] +
       "% av kvinner er utdannet.";
+      // universitet / høgskule lang versjon
+      c3r3.innerHTML = "<h4>Utdanning UNI / høyskole lang : </h4>" + utd[kommunenummer[i]].population["04a"].Menn[2017]
+      + "% av menn og " + utd[kommunenummer[i]].population["04a"].Kvinner[2017] +
+      "% av kvinner.";
       // universitet / høgkule kort versjon
       c1r3.innerHTML = "<h4>Utdanning UNI / høyskole kort: </h4>" + utd[kommunenummer[i]].population["03a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["03a"].Kvinner[2017] +
@@ -70,10 +74,6 @@ var detaljer = function() {
       c2r3.innerHTML = "<h4>Antall: </h4>" + ((utd[kommunenummer[i]].population["03a"].Menn[2017])/100 * info[kommunenummer[i]].population.Menn[2017]).toFixed(2)
       + " antall av menn og " + ((utd[kommunenummer[i]].population["03a"].Kvinner[2017])/100 * info[kommunenummer[i]].population.Kvinner[2017]).toFixed(2) +
       " antall av kvinner.";
-      // universitet / høgskule lang versjon
-      c3r3.innerHTML = "<h4>Utdanning UNI / høyskole lang : </h4>" + utd[kommunenummer[i]].population["04a"].Menn[2017]
-      + "% av menn og " + utd[kommunenummer[i]].population["04a"].Kvinner[2017] +
-      "% av kvinner.";
       // universitet / høgskule lang versjoni antall
       c4r3.innerHTML = "<h4>Antall: </h4>" + ((utd[kommunenummer[i]].population["04a"].Menn[2017])/100 * info[kommunenummer[i]].population.Menn[2017]).toFixed(2)
       + " antall av menn og " + ((utd[kommunenummer[i]].population["04a"].Kvinner[2017])/100 * info[kommunenummer[i]].population.Kvinner[2017]).toFixed(2) +

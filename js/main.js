@@ -1,4 +1,4 @@
-// diverse URL'er for datasettene
+// URL for datasettene
 let dataBeskrivelser = "http://wildboy.uib.no/~tpe056/folk/";
 let dataBefolkning = "http://wildboy.uib.no/~tpe056/folk/104857.json";
 let dataUtdanning = "http://wildboy.uib.no/~tpe056/folk/85432.json";
