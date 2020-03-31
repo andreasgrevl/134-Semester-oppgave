@@ -9,7 +9,7 @@ let dataSysselsatte = "http://wildboy.uib.no/~tpe056/folk/100145.json";
 function performGetRequest(url, callback) {
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
-    // om readyState == 4 er det operasjonen utført
+    // om readyState == 4 er operasjonen utført
     if (request.readyState == 4 && request.status == 200) {
       callback(request.response);
     }
@@ -18,7 +18,7 @@ function performGetRequest(url, callback) {
   request.send();
 }
 
-// vise-og-skjule-knapp
+// vis og skjul knapp
 function visBoks(id) {
   var boksene = document.getElementsByClassName("infoboks");
   var boks = document.getElementById(id);
@@ -36,13 +36,13 @@ function visBoks(id) {
 };
 
 
-// konstruktoeren
+// konstruktør
 function befolkningFunksjon(url) {
   this.url = url;
   this.kommuner = [];
   this.onload = null;
 
-  // oppretting av arrays og en dictionary
+  // oppretting av arrays og ein dictionary
   this.kommunenavn = [];
   this.kommunenummer = [];
   this.kommuneinfo = {} ;
@@ -81,14 +81,14 @@ function befolkningFunksjon(url) {
 
       if (self.onload) {
         self.onload();
-        // test for rekkefølge på datainnlasting
+        // testing
         console.log("Ready");
       }
     });
   }
 };
 
-// initialisering av objektene
+
 var befolkning = new befolkningFunksjon(dataBefolkning);
 var utdanning = new befolkningFunksjon(dataUtdanning);
 var syssel = new befolkningFunksjon(dataSysselsatte);
@@ -105,8 +105,8 @@ utdanning.onload = function() {
 syssel.onload = function() {
   console.log("dataSysselsatte lastes")
 };
-// sender en forespørsel hver om å laste ned datasettet
-// og laster de ned
+// laster ned datasett etter forespørsel
+//
 befolkning.load();
 utdanning.load();
 syssel.load();
