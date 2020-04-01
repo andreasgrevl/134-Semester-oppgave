@@ -1,15 +1,15 @@
-// utrekning av prosent
+// percent calculator
 var getpercentchange = function(nyVerdi, gammelVerdi) {
   return (nyVerdi - gammelVerdi) / gammelVerdi * 100;
 }
 
-// funksjon for å opprette sammenligne-tabellen
+// function that creates the compare table
 var opprettTabell = function(utvikling, sammenlignendeUtvikling, knr) {
-  // henting av data
+  // retrieving data
   var kommunenavn = befolkning.getNames();
   var kommunenummer = befolkning.getIDs();
 
-  // Oppretting av tabellen
+  // creating the table
   var tabell = document.createElement('table');
   tabell.classList.add("flex");
   tabell.style.width = '100%';
@@ -30,7 +30,7 @@ var opprettTabell = function(utvikling, sammenlignendeUtvikling, knr) {
       headercell2.innerHTML = "K.nr: " + kommunenummer[x];
     }
   }
-  // Løkke som fyller tabell med data
+  // for loop that fills the table with data
   for (var i = 0; i < utvikling.length; i++) {
     var aar = utvikling[i].aar;
     var aarCell = tabell.rows[1].insertCell();
@@ -47,7 +47,7 @@ var opprettTabell = function(utvikling, sammenlignendeUtvikling, knr) {
     var kvinnerMaxChange = utvikling[i].kvinnerprosentChange > sammenlignendeUtvikling[i].kvinnerprosentChange;
     var mennMaxChange = utvikling[i].mennprosentChange > sammenlignendeUtvikling[i].mennprosentChange;
 
-    // tilegner klasse for høgaste auke i prosentpoeng
+    // Highest percental increase get allocated into class
     if (kvinnerMaxChange) {
       kvinnerCell.classList.add('best-category')
     }
@@ -59,11 +59,10 @@ var opprettTabell = function(utvikling, sammenlignendeUtvikling, knr) {
   return tabell;
 }
 
-// funksjon for utvikling av sysselsetting
+// function that shows the development of 'sysselsetting'
 var getutviklingSysselsetting = function(kommunenummer) {
   var sysselsetting = syssel.getInfo(kommunenummer);
   var aarstall = Object.keys(sysselsetting.population.Kvinner);
-  // variabelen som skal brukast som utgangspunkt
   var fyrsteAar = aarstall[0];
   var utvikling = [
     {
@@ -84,10 +83,10 @@ var getutviklingSysselsetting = function(kommunenummer) {
 
     var tidligeresysselsettingMenn = sysselsetting.population.Menn[fjoraar];
     var tidligeresysselsettingKvinner = sysselsetting.population.Kvinner[fjoraar];
-    // bruker hjelpefunksjonen frå toppen
+    // using the percent calculator
     mennprosentChange = getpercentchange(sysselsettingMenn, tidligeresysselsettingMenn);
     kvinnerprosentChange = getpercentchange(sysselsettingKvinner, tidligeresysselsettingKvinner);
-    // data til lista utvikling
+    // pushing data to the list 'utvikling'
     utvikling.push({
       aar: aar,
       menn: sysselsettingMenn,
@@ -96,12 +95,12 @@ var getutviklingSysselsetting = function(kommunenummer) {
       kvinnerprosentChange: kvinnerprosentChange,
     });
   }
-  // returnerer lista utvikling
+  // returns the list 'utvikling'
   return utvikling;
 }
 
 
-// funksjon for å bruke resultat frå hjelpefunksjoner i opppretting av tabell
+// creating table with the help function
 var compareSysselsetting = function(kommunenummer1, kommunenummer2) {
   var utviklingKommune1 = getutviklingSysselsetting(kommunenummer1);
   var utviklingKommune2 = getutviklingSysselsetting(kommunenummer2);

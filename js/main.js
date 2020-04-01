@@ -1,4 +1,8 @@
-// URL for datasettene
+//This is the main javascript file. I've tried to keep comments in english like the
+// seminar leader said, but there will be faulty language here and there
+//  References and help material for javascript code is submitted in the report pdf.
+
+// URL for the datasets
 let dataBeskrivelser = "http://wildboy.uib.no/~tpe056/folk/";
 let dataBefolkning = "http://wildboy.uib.no/~tpe056/folk/104857.json";
 let dataUtdanning = "http://wildboy.uib.no/~tpe056/folk/85432.json";
@@ -9,7 +13,7 @@ let dataSysselsatte = "http://wildboy.uib.no/~tpe056/folk/100145.json";
 function performGetRequest(url, callback) {
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
-    // om readyState == 4 er operasjonen utført
+    // if readyState == 4 the operation is completed
     if (request.readyState == 4 && request.status == 200) {
       callback(request.response);
     }
@@ -18,7 +22,7 @@ function performGetRequest(url, callback) {
   request.send();
 }
 
-// vis og skjul knapp
+// show and hide button
 function visBoks(id) {
   var boksene = document.getElementsByClassName("infoboks");
   var boks = document.getElementById(id);
@@ -36,13 +40,13 @@ function visBoks(id) {
 };
 
 
-// konstruktør
+// constructor
 function befolkningFunksjon(url) {
   this.url = url;
   this.kommuner = [];
   this.onload = null;
 
-  // oppretting av arrays og ein dictionary
+  // arrays and dictionary
   this.kommunenavn = [];
   this.kommunenummer = [];
   this.kommuneinfo = {} ;
@@ -105,7 +109,7 @@ utdanning.onload = function() {
 syssel.onload = function() {
   console.log("dataSysselsatte lastes")
 };
-// laster ned datasett etter forespørsel
+// loads the dataset from request
 //
 befolkning.load();
 utdanning.load();

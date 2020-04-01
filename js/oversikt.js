@@ -1,15 +1,15 @@
-// funksjon for å presentere data under oversikt-delen
+//Function that presents data in the 'oversikt' part
 var OverblikkPopulasjon = function() {
 
-  // lokalisere plassering i html
+  // finding the ID in html file
   var overblikkTabell = document.getElementsByClassName("oversikt")[0];
 
-  // henting av datasett
+  // retrieving the dataset
   var kommunenavn = befolkning.getNames();
   var kommunenummer = befolkning.getIDs();
   var info = befolkning.kommuneinfo;
 
-  // for-løkke for å fylle tabellen med data
+  // for loop that fills the table with data
   for (var i = 0; i < kommunenavn.length; i++) {
     var row = overblikkTabell.insertRow(0);
     var nameCell = row.insertCell(0);

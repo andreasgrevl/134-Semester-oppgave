@@ -1,18 +1,18 @@
-//søkefunksjonen
+//search funtion
 var detaljer = function() {
-  // elementer fra html
+  // elements from html
   var input = document.getElementById("detaljer").value;
   var detaljer = document.getElementsByClassName('detaljerTable')[0];
-  // verdiene går fra objekt til variabler
+  // values goes from objects to variables
   var kommunenavn = befolkning.getNames();
   var kommunenummer = befolkning.getIDs();
   var info = befolkning.kommuneinfo;
   var sysselsatte = syssel.kommuneinfo;
   var utd = utdanning.kommuneinfo;
 
-  //Lager celler og rader i tabell
+  //creates cells and rows in table
   for (var i = 0; i < kommunenavn.length; i++) {
-    // Søk av kommunenr og navn
+    // search 'kommunenr' and name
     if (kommunenavn[i] === input || kommunenummer[i] === input) {
       var row1 = detaljer.insertRow(0);
       var nameCell = row1.insertCell(0);
@@ -40,7 +40,7 @@ var detaljer = function() {
       var row7 = detaljer.insertRow(5);
       var row8 = detaljer.insertRow(6);
 
-      // kommunenavn & kommunenr
+      // kommunenavn and kommunenr
       nameCell.innerHTML ="<h4>Kommune: </h4>" + kommunenavn[i];
       idCell.innerHTML = "<h4>Kommune.nr: </h4>" + kommunenummer[i];
 
@@ -51,43 +51,43 @@ var detaljer = function() {
 
       // BEFOLKNING
       c1r2.innerHTML = "<h4>Befolkning i 2018: </h4>" + (info[kommunenummer[i]].population.Menn[2018]
-      + info[kommunenummer[i]].population.Kvinner[2018]);  
+      + info[kommunenummer[i]].population.Kvinner[2018]);
 
       // UTDANNING :
-      // grunnskule
+      // elementary school
       c3r2.innerHTML = "<h4>Utdanning grunnskole: </h4>" + utd[kommunenummer[i]].population["01"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["01"].Kvinner[2017] +
       "% av kvinner er utdannet.";
-      // Videregåande
+      // high school
       c4r2.innerHTML = "<h4>Utdanning VGS: </h4> " + utd[kommunenummer[i]].population["02a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["02a"].Kvinner[2017] +
       "% av kvinner er utdannet.";
-      // universitet / høgskule lang versjon
+      // university / college long version
       c3r3.innerHTML = "<h4>Utdanning UNI / høyskole lang : </h4>" + utd[kommunenummer[i]].population["04a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["04a"].Kvinner[2017] +
       "% av kvinner.";
-      // universitet / høgkule kort versjon
+      // university / college short version
       c1r3.innerHTML = "<h4>Utdanning UNI / høyskole kort: </h4>" + utd[kommunenummer[i]].population["03a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["03a"].Kvinner[2017] +
       "% av kvinner.";
-      // universitet / høgskule kort versjon i antall
+      // university / college short version by instances
       c2r3.innerHTML = "<h4>Antall: </h4>" + ((utd[kommunenummer[i]].population["03a"].Menn[2017])/100 * info[kommunenummer[i]].population.Menn[2017]).toFixed(2)
       + " antall av menn og " + ((utd[kommunenummer[i]].population["03a"].Kvinner[2017])/100 * info[kommunenummer[i]].population.Kvinner[2017]).toFixed(2) +
       " antall av kvinner.";
-      // universitet / høgskule lang versjoni antall
+      // university / college long version by instances
       c4r3.innerHTML = "<h4>Antall: </h4>" + ((utd[kommunenummer[i]].population["04a"].Menn[2017])/100 * info[kommunenummer[i]].population.Menn[2017]).toFixed(2)
       + " antall av menn og " + ((utd[kommunenummer[i]].population["04a"].Kvinner[2017])/100 * info[kommunenummer[i]].population.Kvinner[2017]).toFixed(2) +
       " antall av kvinner.";
-      // fagskule
+      // trade school
       c5r3.innerHTML = "<h4>Utdanning fagskole: </h4>" + utd[kommunenummer[i]].population["11"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["11"].Kvinner[2017] +
       "% av kvinner.";
-      // inkomplett informasjon oppgitt, ikkje fullført
+      // lack of information, not completed school
       c6r3.innerHTML = "<h4>Ingenting fullført / uoppgitt: </h4>" + utd[kommunenummer[i]].population["09a"].Menn[2017]
       + "% av menn og " + utd[kommunenummer[i]].population["09a"].Kvinner[2017] +
       "% av kvinner.";
 
-      // historisk utvikling av data frå 2005 til 2017
+      // historical development of data from 2005 to 2017
       for (var x = 2007; x < 2018; x++) {
         var b = -1; b < 11; b++;
         var cells = row6.insertCell(b);
