@@ -36,23 +36,23 @@ var opprettTabell = function(utvikling, sammenlignendeUtvikling, knr) {
     var aarCell = tabell.rows[1].insertCell();
     aarCell.innerHTML = aar;
 
-    var mennCell = tabell.rows[1].insertCell();
-    mennCell.innerHTML = "Menn: \n" + utvikling[i].menn;
-    aarCell.appendChild(mennCell);
+    var mCell = tabell.rows[1].insertCell();
+    mCell.innerHTML = "Menn: \n" + utvikling[i].menn;
+    aarCell.appendChild(mCell);
 
-    var kvinnerCell = tabell.rows[1].insertCell();
-    kvinnerCell.innerHTML = "Kvinner: \n" + utvikling[i].kvinner;
-    aarCell.appendChild(kvinnerCell);
+    var kCell = tabell.rows[1].insertCell();
+    kCell.innerHTML = "Kvinner: \n" + utvikling[i].kvinner;
+    aarCell.appendChild(kCell);
 
     var kvinnerMaxChange = utvikling[i].kvinnerprosentChange > sammenlignendeUtvikling[i].kvinnerprosentChange;
     var mennMaxChange = utvikling[i].mennprosentChange > sammenlignendeUtvikling[i].mennprosentChange;
 
     // Highest percental increase get allocated into class
     if (kvinnerMaxChange) {
-      kvinnerCell.classList.add('best-category')
+      kCell.classList.add('best-category')
     }
     if (mennMaxChange) {
-      mennCell.classList.add('best-category');
+      mCell.classList.add('best-category');
     }
   }
   tabell.classList.add("samanlikning")
