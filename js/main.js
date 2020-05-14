@@ -1,6 +1,4 @@
-//This is the main javascript file. I've tried to keep comments in english like the
-// seminar leader said, but there will be faulty language here and there
-//  References and help material for javascript code is submitted in the report pdf.
+//This is the main javascript file. 
 
 // URL for the datasets
 let dataBeskrivelser = "http://wildboy.uib.no/~tpe056/folk/";
